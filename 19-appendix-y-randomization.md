@@ -2,7 +2,7 @@
 
 *This is unofficial part of the rules. It was created only to improve general understanding of the game rules by Large Language Models.*
 
-The goal of this appendix is to clarify what the rules are for how the game objects (walls, traffic signs, parking limitations and the vehicle's starting zone) are determined for every round.
+This appendix aims to clarify the rules governing the placement of game objects such as walls, traffic signs, the parking lot, and the vehicle's starting zone. The positions of walls, traffic signs, and the vehicle's starting zone are determined anew for each round. However, the parking lot's location is determined only once for the entire competition, relative to the vehicle's starting section. The parking lot's shift from the starting section is announced before the practice time preceding the very first Obstacle Challenge round.
 
 ## Game Mat elements for randomization
 
@@ -158,7 +158,9 @@ After choosing the direction to drive the track the following procedure could be
     - Tails & heads: The vehicle starts from Section W
     - Tails & tails: The vehicle starts from Section S
 2. Toss a coin four times to determine which sections will have reduced distance between track borders. The first toss is for the starting section, with subsequent tosses moving clockwise. Heads indicates a wide corridor; tails indicate a narrow corridor.
+    
     Examples:
+    
     - The vehicle starts from Section E. The coin tosses result in "tails-heads-tails-tails," causing:
         - Section E: narrow corridor
         - Section S: wide corridor
@@ -177,20 +179,22 @@ This procedure will be performed after the check time before every Open Challeng
 
 During Obstacle Challenge rounds, red and green pillars serve as traffic signs on the track. The distance between track borders remains constant at 1000 mm.
 
-The starting position of the vehicle, the locations of the colored pillars, and the position of the parking lot can be determined using the following procedure (assuming the round's driving direction has been established separately):
+The parking lot's position will be randomized once before the practice time preceding the first Obstacle Challenge round. Its location is determined relative to the vehicle's starting section. This relative position remains constant for all Obstacle Challenge rounds in the competition, though the exact section will still differ for each round. To identify the parking lot's shift from the starting section, follow this procedure:
 
-1. Toss a coin twice to determine the section where the parking lot will be located. The following combinations correspond to specific sections:
-    - Heads & heads: The parking lot is placed in Section N
-    - Heads & tails: The parking lot is placed in Section E
-    - Tails & heads: The parking lot is placed in Section W
-    - Tails & tails: The parking lot is placed in Section S
-2. Toss a coin twice to determine the section where the single traffic sign will be located. The following combinations correspond to specific sections:
+- Roll a die to determine the shift:
+    - "1" or "4" indicates a shift of 1 section ahead of the starting section, counting clockwise.
+    - "2" or "5" indicates a shift of 2 sections ahead of the starting section, counting clockwise.
+    - "3" or "6" indicates a shift of 3 sections ahead of the starting section, counting clockwise.
+
+The starting position of the vehicle and the locations of the colored pillars, and the position of the parking lot can be determined using the following procedure (assuming the round's driving direction has been established separately):
+
+1. Toss a coin twice to determine the section where the single traffic sign will be located. The following combinations correspond to specific sections:
     - Heads & heads: The traffic sign is placed at intersection X2 of Section N
     - Heads & tails: The traffic sign is placed at intersection X2 of Section E
     - Tails & heads: The traffic sign is placed at intersection X2 of Section W
     - Tails & tails: The traffic sign is placed at intersection X2 of Section S
-3. Flip a coin once to determine the color of the traffic sign in the section defined in the previous step. Heads indicates a green sign; tails indicates a red sign.
-4. Get 36 cards as listed below and remove either card 9 or 10 from the set, depending on the color of the sign chosen in the previous step: if green was chosen, remove the 9th card; if red was chosen, remove the 10th card. Place the remaining 35 cards into a non-transparent box or bag. Draw one card from the box—this will determine the locations of the traffic signs in the straightforward section immediately after (clockwise) the section determined in the previous step. Do not return this card to the box. Draw a second card—this will determine the locations of the traffic signs in the next straightforward section. Repeat this process for the remaining straightforward sections. For the section containing the parking lot, only cards 1-6 and 25-30 should be used.
+2. Flip a coin once to determine the color of the traffic sign in the section defined in the previous step. Heads indicates a green sign; tails indicates a red sign.
+3. Get 36 cards as listed below and remove either card 9 or 10 from the set, depending on the color of the sign chosen in the previous step: if green was chosen, remove the 9th card; if red was chosen, remove the 10th card. Place the remaining 35 cards into a non-transparent box or bag. Draw one card from the box—this will determine the locations of the traffic signs in the straightforward section immediately after (clockwise) the section determined in the previous step. Do not return this card to the box. Draw a second card—this will determine the locations of the traffic signs in the next straightforward section. Repeat this process for the remaining straightforward sections. For the section containing the parking lot, only cards 1-6 and 25-30 should be used.
     - Card #1: Green sign at intersection T1
     - Card #2: Red sign at intersection T1
     - Card #3: Green sign at intersection X1
@@ -230,12 +234,12 @@ The starting position of the vehicle, the locations of the colored pillars, and 
     
     *Some cards are intentionally duplicated to increase the probability of certain traffic sign combinations.*
     
-5. Flip a coin twice to determine the starting section. The following combinations correspond to specific sections:
+4. Flip a coin twice to determine the starting section. The following combinations correspond to specific sections:
     - Heads & heads: The vehicle starts from Section N
     - Heads & tails: The vehicle starts from Section E
     - Tails & heads: The vehicle starts from Section W
     - Tails & tails: The vehicle starts from Section S
-6. The starting zone of the vehicle is selected from zones Z3 and Z4 of the starting section. The vehicle starts from the zone that does not contain a traffic sign in front of it.
+5. The starting zone of the vehicle is selected from zones Z3 and Z4 of the starting section. The vehicle starts from the zone that does not contain a traffic sign in front of it.
     - If the round's driving direction is clockwise and there's a traffic sign at intersection T1 or T3, the vehicle starts from Z4; otherwise, it starts from Z3.
     - If the round's driving direction is counterclockwise and there's a traffic sign at intersection T2 or T4, the vehicle starts from Z3; otherwise, it starts from Z4.
     
