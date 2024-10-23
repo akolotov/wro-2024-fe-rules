@@ -244,3 +244,20 @@ The starting position of the vehicle and the locations of the colored pillars, a
     - If the round's driving direction is counterclockwise and there's a traffic sign at intersection T2 or T4, the vehicle starts from Z3; otherwise, it starts from Z4.
     
     It's possible for a traffic sign to be located behind the vehicle.
+6. The absolute position of the parking lot is determined from the parking lot shift identified before the practice time preceding the first Obstacle Challenge round:
+    - If the vehicle starts from Section N:
+        - With a shift of 1, the parking lot is in Section E
+        - With a shift of 2, the parking lot is in Section S
+        - With a shift of 3, the parking lot is in Section W
+    - If the vehicle starts from Section E: 
+        - With a shift of 1, the parking lot is in Section S
+        - With a shift of 2, the parking lot is in Section W
+        - With a shift of 3, the parking lot is in Section N
+    - If the vehicle starts from Section S:
+        - With a shift of 1, the parking lot is in Section W
+        - With a shift of 2, the parking lot is in Section N
+        - With a shift of 3, the parking lot is in Section E
+    - If the vehicle starts from Section W:
+        - With a shift of 1, the parking lot is in Section N
+        - With a shift of 2, the parking lot is in Section E
+        - With a shift of 3, the parking lot is in Section S
