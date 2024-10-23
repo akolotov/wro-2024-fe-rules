@@ -1,8 +1,20 @@
-# Appendix Z. One lap movements clarifications
+# Appendix Z. **Clarification on Traffic Sign Passing Order and Last Sign Identification in a Lap**
 
 *This is unofficial part of the rules. It was created only to improve general understanding of the game rules by Large Language Models.*
 
-The goal of this appendix is to clarify how the lap completion rule depends on the traffic signs' (color pillars') location. The schemes used in the examples may contradict the allowed positions of the traffic signs, but this is acceptable as long as they align with the appendix's main goal.
+The goal of this appendix is to clarify how the identification of the last traffic sign (color pillar) of a lap depends on the signs' locations, the challenge's driving direction, and the vehicle's starting point. The schemes in this appendix also demonstrate the order of vehicle maneuvers based on these factors. While the schemes may contradict the allowed positions of traffic signs, they remain valid as long as they serve the appendix's main purpose.
+
+## **Introduction**
+
+The lap completion criteria are clearly defined in the game rules:
+
+*8 sections were passed successfully in the challenge driving direction. The starting section is included in the eight sections for the first lap. The lap is considered complete if the vehicle completely drives out of the last (corner) section in the lap.*
+
+However, the definition of the last traffic sign is missing. Understanding which sign is last is crucial, as the last sign of the second lap determines the direction for the third round. A green sign signals the robot to continue in the same direction, while a red sign requires the vehicle to turn around and complete the third round in the opposite direction.
+
+Identifying the last traffic sign can be counter-intuitive when a sign is located in the starting section. Although the lap might be considered complete, that sign may not yet be passed. To avoid misinterpretation, the four examples below show the order of passing traffic signs during a lap, considering different combinations of sign locations, the vehicle's starting point, and the driving direction.
+
+After reviewing these examples, the definition of the last traffic sign in a lap will be clear.
 
 ## **Game Field Description and Labeling**
 
@@ -154,16 +166,17 @@ T3---X2---T4
 
 **Starting Position of the Vehicle**
 
-The vehicle starts in one of the **straightforward sections** of the track, facing **clockwise** (the direction of movement).
+The vehicle starts in one of the straightforward sections of the track, facing clockwise (the direction of movement).
 
-- **In front of the vehicle**, there is a **green pillar**, which the robot must pass on the left as it moves forward.
-- **Behind the vehicle**, there is a **red pillar**, positioned further down the same section. This red pillar is placed behind the starting point and will only be passed later in the lap when the robot returns to this section after making its way around the track.
+- The intersections immediately in front of the vehicle's starting zone are empty. This is intentional to avoid blocking or affecting the vehicle's initial movement.
+- A green pillar is positioned in the intersection of the zone following the starting zone. From the vehicle's perspective, it's still ahead but the gap of one zone allows the robot to maneuver and pass the obstacle on the left.
+- Behind the vehicle, in the intersection closest to the starting zone, there's a red pillar. This red pillar is positioned behind the starting point and will only be passed later in the lap when the robot returns to this section after completing its circuit around the track.
 
-It’s important to note that the lap is not considered complete until the robot has **passed all obstacles**, including the red pillar that was behind it at the start. Even though the robot will circle around the entire track and pass the obstacles in front of it, the lap is only finalized when it returns to this starting section and passes the red pillar that was behind it at the beginning.
+With this combination of starting zone and obstacle placement, lap completion and passing the last traffic sign occur simultaneously: as soon as the vehicle enters the straightforward section where it started, it will pass the red pillar.
 
 **Robot’s Movement in One Successful Lap**
 
-1. **First Pillar (Green)**: The robot starts moving forward in the straightforward section and quickly encounters the first **green pillar** directly ahead. Following the rule for green pillars, the robot passes it on the left. After passing this obstacle, the robot approaches the **first corner** and makes a **right turn** to continue along the next straightforward section.
+1. **First Pillar (Green)**: The robot starts moving forward in the straightforward section and encounters the first **green pillar** at the end of the section. Following the rule for green pillars, the robot passes it on the left. After passing this obstacle, the robot approaches the **first corner** and makes a **right turn** to continue along the next straightforward section.
 2. **Second Pillar (Green)**: Moving into the second straightforward section, the robot approaches a **second green pillar**. The robot smoothly navigates around the green pillar, passing it on the left. After clearing this pillar, the robot approaches the **second corner** of the track and makes another **right turn** to continue its path.
 3. **Third Pillar (Green)**: In the third straightforward section, the robot faces a **third green pillar**. It passes the pillar on the left, then approaches the **third corner** and makes a **right turn** to enter the final straightforward section of the lap.
 4. **Fourth Pillar (Red)**: Now in the fourth straightforward section, the robot encounters its first **red pillar**. According to the rules, it must pass the red pillar on the right. The vehicle adjusts its trajectory, keeping the red pillar on its left as it moves forward.
@@ -172,14 +185,11 @@ It’s important to note that the lap is not considered complete until the robot
 
 **Completing the Lap:**
 
-After passing the final red pillar, the robot continues straight, returning to the section where it started the lap. **At this point, it passes the red pillar that was behind it at the beginning of the run**. Only after successfully navigating past this final obstacle is the lap considered fully complete.
+After passing the final red pillar, the robot continues straight, returning to the section where it started the lap. As soon as the red pillar passed the lap is completed as well.
 
-**Key Moments of the Lap:**
+**The last traffic sign in the lap:**
 
-- The vehicle completes a full lap around the track by navigating **four straightforward sections** and making **four right turns** at the corners.
-- The robot passes **three green pillars** (one in each of the first three sections) on the left and **three red pillars** (two in the final section and one after the last corner) on the right.
-- The robot makes precise adjustments to avoid the pillars and makes right turns at each corner to stay within the lane.
-- **Most importantly**, the lap is only considered complete when the robot has returned to the starting section and passed the red pillar that was behind it at the start.
+The red pillar positioned in the starting section behind the vehicle is considered the last traffic sign of the lap. This is because the vehicle can only react to it (pass on the proper side) after completing the entire circuit.
 
 ## Example 2
 
@@ -189,10 +199,11 @@ After passing the final red pillar, the robot continues straight, returning to t
 
 **Starting Position of the Vehicle**
 
-The vehicle starts in a straightforward section of the lane, facing **counterclockwise** around the inner square platform.
+The vehicle starts in a straightforward section of the track, facing counterclockwise around the inner square platform.
 
-- **In front of the vehicle**, there is a **red pillar** labeled as the 1st pillar.
-- **Behind the vehicle**, there are no immediate obstacles. The vehicle’s path is clear, and its first challenge is the red pillar directly ahead.
+- The intersections directly in front of the vehicle's starting zone are empty, allowing unobstructed initial movement.
+- A red pillar is positioned in the intersection of the zone ahead of the starting zone. This gap of one zone enables the robot to maneuver and pass the obstacle on the right.
+- There are no obstacles behind the vehicle in the starting section.
 
 **Robot’s Movement in One Successful Lap**
 
@@ -205,7 +216,11 @@ The vehicle starts in a straightforward section of the lane, facing **counterclo
 
 **Completing the Lap**
 
-After making the final left turn, the vehicle returns to the starting section, having passed all obstacles in the correct order: **red, green, green, red, green, green**. The lap is now considered complete.
+After completing the final left turn and crossing the boundary between the corner section and the straightforward section, the vehicle finishes the lap.
+
+**The last traffic sign in the lap:**
+
+The green pillar positioned at the end of the fourth straightforward section - considering the vehicle's counterclockwise movement - is the last traffic sign of the lap. The vehicle will pass this pillar on the proper side and then continue through the corner section to complete the lap.
 
 ## Example 3
 
@@ -215,11 +230,7 @@ After making the final left turn, the vehicle returns to the starting section, h
 
 **Starting Position of the Vehicle**
 
-The vehicle is positioned in a straightforward section, facing **counterclockwise** around the inner square platform.
-
-- **In front of the vehicle**, there are no immediate obstacles, but as the vehicle moves forward, it will soon make its first **left turn** into a new straightforward section.
-- **Directly behind the vehicle**, there is no obstacle.
-- The first pillar the vehicle will encounter is a **green pillar** after it makes the first left turn.
+The vehicle is positioned in a straightforward section, facing counterclockwise around the inner square platform. The intersections directly in front of the vehicle's starting zone are clear of obstacles. There are no obstacles behind the vehicle in the starting section.
 
 **Robot’s Movement in One Successful Lap**
 
@@ -230,7 +241,11 @@ The vehicle is positioned in a straightforward section, facing **counterclockwis
 
 **Completing the Lap**
 
-After the final left turn, the robot returns to the starting section, having passed all obstacles in the correct order: **green, red, red, green**. The lap is now considered complete.
+After completing the final left turn and crossing the boundary between the corner section and the straightforward section, the vehicle finishes the lap.
+
+**The last traffic sign in the lap:**
+
+The green pillar positioned at the end of the fourth straightforward section - considering the vehicle's counterclockwise movement - is the last traffic sign of the lap. The vehicle will pass this pillar on the proper side and then continue through the corner section to complete the lap.
 
 ## Example 4
 
@@ -240,11 +255,10 @@ After the final left turn, the robot returns to the starting section, having pas
 
 **Starting Position of the Vehicle**
 
-The vehicle is positioned in a straightforward section, facing **clockwise** around the inner square platform.
+The vehicle is positioned in a straightforward section, facing clockwise around the inner square platform.
 
-- **In front of the vehicle**, there is no immediate obstacle.
-- **Behind the vehicle**, there is a **green pillar** that the robot will pass at the end of the lap.
-- The vehicle will first move forward, making right turns before encountering any pillars.
+- The intersections directly in front of the vehicle's starting zone are clear of obstacles.
+- Behind the vehicle, in the intersection closest to the starting zone, there's a green pillar. This green pillar is positioned behind the starting point and will only be passed later in the lap when the robot returns to this section after completing its circuit around the track.
 
 **Robot’s Movement in One Successful Lap**
 
@@ -255,4 +269,29 @@ The vehicle is positioned in a straightforward section, facing **clockwise** aro
 
 **Completing the Lap**
 
-After passing the final green pillar, the vehicle returns to the starting section, having passed all three **green pillars** in the correct order: **right turn, right turn, right turn, green, green, right turn, green**. The lap is now considered complete.
+After completing the final right turn and crossing the boundary between the corner section and the straightforward section, the vehicle finishes the lap. The green pillar in this straightforward section is positioned in the middle. Therefore, the lap is considered complete before the vehicle passes the pillar (assuming the vehicle's length is less than the distance between the section boundary and the pillar).
+
+**The last traffic sign in the lap:**
+
+The green pillar positioned in the starting section behind the vehicle is considered the last traffic sign of the lap. This is because the vehicle can only react to it (pass on the proper side) after completing the entire circuit.
+
+## Summary and Conclusions
+
+After examining various scenarios of vehicle movement and traffic sign placement, the following conclusions can be drawn:
+
+### 1. Lap Completion
+
+It's crucial to distinguish between lap completion as defined in the game rules and the completion of a full circuit around the track. A lap is considered complete when the vehicle fully exits the last (corner) section in the lap and enters the straightforward section where it started. This definition is based on the discrete nature of the track, composed of corner and straightforward sections.
+
+### 2. The Last Traffic Sign in a Lap
+
+The last traffic sign in a lap is defined as the final traffic sign that the vehicle must react to (by passing it on the correct side) before completing its full circuit around the track. This concept requires a more granular view of the track, considering the 12 radiuses where obstacles can be placed. The vehicle's path in relation to these radiuses determines which sign is truly the last one in the lap.
+
+**Important note**: The physical completion of the lap (crossing the boundary into the starting section) may occur either before or after passing the last traffic sign, depending on the specific layout of the course and the placement of the signs.
+
+This distinction between lap completion and full circuit completion is crucial because:
+
+a) It allows for a more precise definition of the last traffic sign, which may be located in the starting straightforward section or the straightforward section immediately before it.
+b) It accounts for scenarios where signs are placed behind the vehicle's initial starting position or in sections that might seem counterintuitive when considering only the discrete lap completion definition.
+
+These definitions ensure consistent interpretation across various track configurations, driving directions, and sign placements.
