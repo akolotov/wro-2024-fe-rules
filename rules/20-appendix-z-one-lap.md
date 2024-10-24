@@ -283,6 +283,14 @@ After examining various scenarios of vehicle movement and traffic sign placement
 
 It's crucial to distinguish between lap completion as defined in the game rules and the completion of a full circuit around the track. A lap is considered complete when the vehicle fully exits the last (corner) section in the lap and enters the straightforward section where it started. This definition is based on the discrete nature of the track, composed of corner and straightforward sections.
 
+**Aplicability**
+
+The definition of lap completion is applied in several important cases within the game rules:
+
+- To award points for lap completion, the lap must be fully completed by the vehicle crossing entirely into the starting section.
+- To allow the vehicle to begin moving in the opposite direction after the second lap (if the last traffic sign is red), the vehicle must fully cross the boundary into the starting section at the end of the second lap.
+- To permit the vehicle to proceed to the parking lot after the third lap, the vehicle must first completely cross into the starting section upon finishing the third lap.
+
 ### 2. The Last Traffic Sign in a Lap
 
 The last traffic sign in a lap is defined as the final traffic sign that the vehicle must react to (by passing it on the correct side) before completing its full circuit around the track. This concept requires a more granular view of the track, considering the 12 radiuses where obstacles can be placed. The vehicle's path in relation to these radiuses determines which sign is truly the last one in the lap.
@@ -295,3 +303,9 @@ a) It allows for a more precise definition of the last traffic sign, which may b
 b) It accounts for scenarios where signs are placed behind the vehicle's initial starting position or in sections that might seem counterintuitive when considering only the discrete lap completion definition.
 
 These definitions ensure consistent interpretation across various track configurations, driving directions, and sign placements.
+
+**Aplicability**
+
+Determining the last traffic sign in a lap is critical in one specific scenario:
+
+- It helps to establish the correct direction the vehicle should take when starting the third lap, once the second lap has been physically completed.
