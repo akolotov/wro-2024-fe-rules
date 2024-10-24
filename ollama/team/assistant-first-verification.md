@@ -5,7 +5,7 @@ To double-check your answer above, divide everything that was enclosed by the "a
 Based on the received matrix, decide whether adjustment of the answer is necessary and provide an updated version. 
 
 Output your response as:
-<response>
+<brainstorm>
   <chain_of_thoughts>Chain of thoughts and reasoning to conclude the about required adjustments</chain_of_thoughts>
   <answer>Answer original or adjusted if the need for adjustments was discovered.</answer>
-<response>
+<brainstorm>
