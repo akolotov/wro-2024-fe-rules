@@ -1,2 +1,7 @@
+**/__pycache__
+
 log*.md
 scripts/*
+.env
+input*.json
+out*.json
