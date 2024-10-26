@@ -1,0 +1,7 @@
+{
+    "markdownlint.focusMode": true,
+    "markdownlint.config": {
+        "no-inline-html": false,
+        "MD041": false
+    }
+}
