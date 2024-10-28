@@ -2,8 +2,8 @@ import time
 from configuration.constants import constants
 from llms import gemini
 from helper import read_file_content
-from transformers.to_json.entry import parse
-from transformers.to_xml.common import format_input
+from .transformers.to_json.entry import parse
+from .transformers.to_xml.common import format_input
 from data_structures.inputs.common import UserRequest
 from data_structures.responses.entry import EntryResponse
 from data_structures.report import Report, Metadata
