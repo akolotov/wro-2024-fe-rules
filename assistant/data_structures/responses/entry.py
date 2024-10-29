@@ -51,6 +51,7 @@ class UserRequestInterpretation(BaseModel):
         min_length=1,
         example="How many laps are in the Open Challenge?"
     )
+    
     confidence_score: Optional[float] = Field(
         None,
         description="Confidence score for this interpretation (0-1)",

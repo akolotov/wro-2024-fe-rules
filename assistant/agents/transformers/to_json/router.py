@@ -46,6 +46,5 @@ def parse(xml_string: str) -> RouterResponse:
             sections=result["sections"]
         )
         
-    except ET.ParseError:
-        raise ValueError("Invalid XML response from model")
-
+    except ET.ParseError as e:
+        raise ValueError(f"Invalid XML: {str(e)}")

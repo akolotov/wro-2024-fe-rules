@@ -59,5 +59,6 @@ def parse(xml_string: str) -> EntryResponse:
             chosen_interpretation=result["chosenInterpretation"],
             reformulation_request=result["reformulationRequest"]
         )
-    except ET.ParseError:
-        raise ValueError("Invalid XML response from model")
+    
+    except ET.ParseError as e:
+        raise ValueError(f"Invalid XML: {str(e)}")

@@ -3,6 +3,8 @@ from llms import gemini
 import argparse
 from agents.entry import EntryAgent
 from agents.router import RouterAgent
+from agents.assistant import AssistantAgent
+from data_structures.inputs.assistant import AssistantRequest
 
 def process_question(input_file_path: str, output_file_path: str = "out.json"):
     with open(input_file_path, 'r', encoding='utf-8') as file:
@@ -20,6 +22,17 @@ def process_question(input_file_path: str, output_file_path: str = "out.json"):
     if entry_report.response.reformulation_request is None:
         router_report = router_agent.process_question(entry_report.response.chosen_interpretation.content)
         workflow["router"] = router_report.model_dump()
+
+        for section in router_report.response.sections:
+            assistant_agent = AssistantAgent(section)
+
+            assistant_report = assistant_agent.brainstorm_contribution(
+                AssistantRequest(
+                    original_question=entry_report.response.chosen_interpretation.content
+                )
+            )
+            workflow[section] = assistant_report.model_dump()
+            break
 
     # Save to JSON file
     with open(output_file_path, 'w', encoding='utf-8') as f:
