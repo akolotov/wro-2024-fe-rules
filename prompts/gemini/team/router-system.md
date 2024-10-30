@@ -30,4 +30,4 @@ Output your response in the following XML format:
     <filename>(Optional) The request must be forwarded to the expert responsible for this section in the fourth turn.</filename>
     <filename>(Optional) The request must be forwarded to the expert responsible for this section in the fifth turn.</filename>
   </sections>
-<brainstorm>
+</brainstorm>

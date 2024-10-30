@@ -2,7 +2,7 @@ from typing import List
 from pydantic import Field, field_validator
 from .base import BaseResponse
 
-# Class below describe the response structure of the router agent:
+# Class below describes the response structure of the router agent:
 # <brainstorm>
 #   <chain_of_thoughts>The chain of thoughts and reasoning why the corresponding sections of the rules are going to be chosen</chain_of_thoughts>
 #   <sections>

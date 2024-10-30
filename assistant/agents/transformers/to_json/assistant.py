@@ -19,25 +19,11 @@ def parse_response(xml_string: str) -> BaseAssistantResponse:
         # Parse XML string
         root = ET.fromstring(utils.trim_xml_response(xml_string, "brainstorm"))
         
-        # Extract required fields
-        question = root.find('question')
-        chain_of_thoughts = root.find('chain_of_thoughts') 
-        answer = root.find('answer')
-        
-        if question is None:
-            print(f"Question: {question}")
-            raise ValueError("Missing question XML element")
-        if chain_of_thoughts is None:
-            print(f"Chain of thoughts: {chain_of_thoughts}")
-            raise ValueError("Missing chain of thoughts XML element")
-        if answer is None:
-            print(f"Answer: {answer}")
-            raise ValueError("Missing answer XML element")
-            
         return BaseAssistantResponse(
-            question=question.text.strip(),
-            chain_of_thought=chain_of_thoughts.text.strip(),
-            answer=answer.text.strip()
+            question=utils.get_element_text(root, 'question'),
+            chain_of_thought=utils.get_element_text(root, 'chain_of_thoughts'),
+            applicable=utils.get_element_bool(root, 'applicable'),
+            answer=utils.get_element_text(root, 'answer')
         )
             
     except ET.ParseError as e:
@@ -59,20 +45,10 @@ def parse_verification(xml_string: str) -> VerificationAssistantResponse:
         # Parse XML string
         root = ET.fromstring(utils.trim_xml_response(xml_string, "brainstorm"))
         
-        # Extract required fields
-        chain_of_thoughts = root.find('chain_of_thoughts') 
-        answer = root.find('answer')
-        
-        if chain_of_thoughts is None:
-            print(f"Chain of thoughts: {chain_of_thoughts}")
-            raise ValueError("Missing chain of thoughts XML element")
-        if answer is None:
-            print(f"Answer: {answer}")
-            raise ValueError("Missing answer XML element")
-            
         return VerificationAssistantResponse(
-            chain_of_thought=chain_of_thoughts.text.strip(),
-            answer=answer.text.strip()
+            chain_of_thought=utils.get_element_text(root, 'chain_of_thoughts'),
+            adjustments_required=utils.get_element_bool(root, 'adjustments_required'),
+            answer=utils.get_element_text(root, 'answer', empty_ok=True)
         )
             
     except ET.ParseError as e:

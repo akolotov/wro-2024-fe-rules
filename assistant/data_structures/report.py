@@ -1,4 +1,4 @@
-from typing import TypeVar, Generic
+from typing import TypeVar, Generic, Optional
 from pydantic import BaseModel, Field
 from .responses.base import BaseResponse
 from .responses.assistant import VerificationAssistantResponse, BaseAssistantResponse
@@ -18,4 +18,4 @@ class Report(BaseModel, Generic[T]):
 
 class CombinedAssistantReport(BaseModel, Generic[A]):
     proposal: Report[A]
-    verification: Report[VerificationAssistantResponse]
+    verification: Optional[Report[VerificationAssistantResponse]] = None

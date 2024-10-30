@@ -31,8 +31,10 @@ class AssistantAgent:
 
     def brainstorm_contribution(self, request: AssistantRequest) -> CombinedAssistantReport[BaseAssistantResponse]:
         proposal = self._proposal(request)
-        print(f"proposal.response? {request.response}")
-        verification = self._verification(request.response is not None)
+        if proposal.response.applicable:
+            verification = self._verification(request.response is not None)
+        else:
+            verification = None
 
         if request.response:
             return CombinedAssistantReport[SubsequentAssistantResponse](
@@ -46,6 +48,8 @@ class AssistantAgent:
             )
         
     def _proposal(self, request: AssistantRequest) -> Report[BaseAssistantResponse]:
+        print(f"-- Proposal will be generated")
+        
         if request.response:
             prompt_file = constants.assistant_next_general_prompt_file
             if self.section_filename in constants.special_assistant_prompts_files:    
@@ -54,6 +58,8 @@ class AssistantAgent:
             prompt_file = constants.assistant_first_general_prompt_file
             if self.section_filename in constants.special_assistant_prompts_files:
                 prompt_file = constants.special_assistant_prompts_files[self.section_filename][0]
+
+        print(f"-- {prompt_file} will be used")
 
         prompt_template = read_file_content(constants.prompts_path / prompt_file)
         prompt_content = prompt_template.format(
@@ -81,6 +87,7 @@ class AssistantAgent:
             response = SubsequentAssistantResponse(
                 question=base_response.question,
                 chain_of_thought=base_response.chain_of_thought,
+                applicable=base_response.applicable,
                 answer=base_response.answer
             )
             return Report[SubsequentAssistantResponse](
@@ -91,6 +98,7 @@ class AssistantAgent:
             response = FirstAssistantResponse(
                 question=base_response.question,
                 chain_of_thought=base_response.chain_of_thought, 
+                applicable=base_response.applicable,
                 answer=base_response.answer
             )
             return Report[FirstAssistantResponse](
@@ -99,10 +107,14 @@ class AssistantAgent:
             )
 
     def _verification(self, is_subsequent: bool) -> Report[VerificationAssistantResponse]:
+        print(f"-- Verification will be generated")
+
         if is_subsequent:
             prompt_file = constants.assistant_next_verification_prompt_file
         else:
             prompt_file = constants.assistant_first_verification_prompt_file
+
+        print(f"-- {prompt_file} will be used")
 
         prompt_content = read_file_content(constants.prompts_path / prompt_file)
 

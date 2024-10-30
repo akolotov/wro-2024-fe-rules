@@ -19,7 +19,9 @@ class Constants(BaseModel):
     assistant_first_verification_prompt_file: str = 'assistant-first-verification.md'
     assistant_next_verification_prompt_file: str = 'assistant-next-verification.md'
 
-    # Rules files 
+    finalizer_prompt_file: str = 'finalizer-system.md'
+
+    # Rules files common for all sections
     summary_file: str = '00-summary.md'
     annotations_file: str = 'ANNOTATIONS.md'
 

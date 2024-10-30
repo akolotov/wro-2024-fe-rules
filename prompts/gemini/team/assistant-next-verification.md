@@ -10,5 +10,6 @@ Based on the received matrix, decide whether adjustment of the answer is necessa
 Output your response in the following XML format:
 <brainstorm>
   <chain_of_thoughts>Chain of thoughts and reasoning to conclude the about required adjustments</chain_of_thoughts>
-  <answer>Answer original or adjusted if the need for adjustments was discovered.</answer>
-<brainstorm>
+  <adjustments_required>True if answer needs to be adjusted, False otherwise</adjustments_required>
+  <answer>Adjusted answer if the need for adjustments was discovered.</answer>
+</brainstorm>

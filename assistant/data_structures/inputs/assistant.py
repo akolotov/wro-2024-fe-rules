@@ -11,7 +11,7 @@ from typing import Optional
 class AssistantRequest(BaseModel):
     original_question: str = Field(
         ..., 
-        description="The original user'squestion",
+        description="The original user's question.",
         example="How many laps are in the Open Challenge?"
     )
 
