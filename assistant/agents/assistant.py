@@ -11,20 +11,33 @@ from data_structures.responses.assistant import FirstAssistantResponse, Subseque
 
 class AssistantAgent:
     def __init__(self, section_filename: str):
-        prompt_path = constants.prompts_path / constants.assistant_system_prompt_file
-        summary_path = constants.rules_path / constants.summary_file
-        section_rules_path = constants.rules_path / section_filename
+        summary_content = read_file_content(constants.rules_path / constants.summary_file)
 
-        prompt_template = read_file_content(prompt_path)
-        summary_content = read_file_content(summary_path)
-        section_rules_content = read_file_content(section_rules_path)
+        section_rules_content = read_file_content(constants.rules_path / section_filename)
 
-        system_prompt = prompt_template.format(
-            summary_filename=constants.summary_file,
-            summary_file_content=summary_content,
-            section_filename=section_filename,
-            section_file_content=section_rules_content
-        )
+        if section_filename in constants.dependant_sections:
+            dependant_section_filename = constants.dependant_sections[section_filename][0]
+            dependant_section_rules_content = read_file_content(constants.rules_path / dependant_section_filename)
+
+            prompt_template = read_file_content(constants.prompts_path / constants.assistant_system_multi_section_prompt_file)
+
+            system_prompt = prompt_template.format(
+                summary_filename=constants.summary_file,
+                summary_file_content=summary_content,
+                section_filename=section_filename,
+                section_file_content=section_rules_content,
+                dependant_section_filename=dependant_section_filename,
+                dependant_section_file_content=dependant_section_rules_content
+            )
+        else:
+            prompt_template = read_file_content(constants.prompts_path / constants.assistant_system_prompt_file)
+
+            system_prompt = prompt_template.format(
+                summary_filename=constants.summary_file,
+                summary_file_content=summary_content,
+                section_filename=section_filename,
+                section_file_content=section_rules_content
+            )
 
         self.section_filename = section_filename
         self.model = gemini.GeminiModel(system_prompt)
