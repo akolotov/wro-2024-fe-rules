@@ -2,7 +2,7 @@
 
 *This is unofficial part of the rules. It was created only to improve general understanding of the game rules by Large Language Models.*
 
-This appendix aims to clarify the rules governing the placement of game objects such as walls, traffic signs, the parking lot, and the vehicle's starting zone. The positions of walls, traffic signs, and the vehicle's starting zone are determined anew for each round. However, the parking lot's location is determined only once for the entire competition, relative to the vehicle's starting section. The parking lot's shift from the starting section is announced before the practice time preceding the very first Obstacle Challenge round.
+The goal of this appendix is to clarify what the rules are for how the game objects (walls, traffic signs, parking limitations and the vehicle's starting zone) are determined for every round.
 
 ## Game Mat elements for randomization
 
