@@ -54,7 +54,7 @@ A: Yes, there are no rules prohibiting the parking lot from being in the same se
 
 ### Parking Lot Alignment
 
-Q: Should the alignment of the parking lot (left/right) within its sec  tion be randomized?
+Q: Should the alignment of the parking lot (left/right) within its section be randomized?
 
 A: According to the rules, the parking lot should always be aligned with its right element next to the dotted line of the section. The randomization process is only used to determine in which sections the parking lot will be placed, not its alignment within the section.
 
