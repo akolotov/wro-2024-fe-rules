@@ -27,7 +27,10 @@ class GeminiModel:
             gemini_settings.model,
             system_instruction=system_prompt,
             generation_config=genai.types.GenerationConfig(
-                temperature=constants.generation_temperature
+                temperature=constants.generation_temperature,
+                top_p=0.95,
+                top_k=40,
+                max_output_tokens=8192
             )        
         )
         self._history: list[protos.Content] = []
