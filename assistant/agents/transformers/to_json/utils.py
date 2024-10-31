@@ -31,3 +31,15 @@ def get_element_bool(root: ET.Element, element: str, required: bool = True) -> b
     if text is None:
         raise ValueError(f"Empty {element} XML element")
     return text.strip().lower() == 'true'
+
+def get_attribute(element: ET.Element, attribute: str, required: bool = True, empty_ok: bool = False) -> str:
+    value = element.get(attribute)
+    if value is None:
+        if required:
+            raise ValueError(f"Missing {attribute} XML attribute")
+        return ""
+    if value == "":
+        if not empty_ok:
+            raise ValueError(f"Empty {attribute} XML attribute")
+        return ""
+    return value

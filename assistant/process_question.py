@@ -3,6 +3,7 @@ from llms import gemini
 import argparse
 from agents import EntryAgent, RouterAgent, AssistantAgent, FinalizerAgent
 from data_structures.inputs.assistant import AssistantRequest
+from data_structures.responses.assistant import BaseRule
 
 def process_question(input_file_path: str, output_file_path: str = "out.json"):
     with open(input_file_path, 'r', encoding='utf-8') as file:
@@ -24,6 +25,8 @@ def process_question(input_file_path: str, output_file_path: str = "out.json"):
 
         next_request = AssistantRequest(original_question=entry_report.response.chosen_interpretation.content)
 
+        relevant_rules_accumulator = {}
+
         for section in router_report.response.sections:
             print(f"Involving assistant for {section}")
             assistant_agent = AssistantAgent(section)
@@ -32,6 +35,37 @@ def process_question(input_file_path: str, output_file_path: str = "out.json"):
 
             workflow[section] = assistant_report.model_dump()
 
+            if assistant_report.verification.response.relevant_rules:
+                for rule in assistant_report.verification.response.relevant_rules:
+                    if rule.section not in relevant_rules_accumulator:
+                        relevant_rules_accumulator[rule.section] = {}
+                    if rule.id not in relevant_rules_accumulator[rule.section]:
+                        relevant_rules_accumulator[rule.section][rule.id] = {}
+                    relevant_rules_accumulator[rule.section][rule.id]["content"] = rule.content
+                    relevant_rules_accumulator[rule.section][rule.id]["explanation"] = rule.explanation
+            else:
+                if assistant_report.proposal.response.relevant_rules:
+                    for rule in assistant_report.proposal.response.relevant_rules:
+                        if rule.section not in relevant_rules_accumulator:
+                            relevant_rules_accumulator[rule.section] = {}
+                        if rule.id not in relevant_rules_accumulator[rule.section]:
+                            relevant_rules_accumulator[rule.section][rule.id] = {}
+                        relevant_rules_accumulator[rule.section][rule.id]["content"] = rule.content
+                        relevant_rules_accumulator[rule.section][rule.id]["explanation"] = rule.explanation
+
+            if len(relevant_rules_accumulator) == 0:
+                relevant_rules = None
+            else:
+                relevant_rules = []
+                for section in relevant_rules_accumulator:
+                    for rule_id in relevant_rules_accumulator[section]:
+                        relevant_rules.append(BaseRule(
+                            section=section,
+                            id=rule_id,
+                            content=relevant_rules_accumulator[section][rule_id]["content"],
+                            explanation=relevant_rules_accumulator[section][rule_id]["explanation"]
+                        ))
+
             # Proceed with the same for the next assistant if the question is applicable
             if assistant_report.proposal.response.applicable:
                 if assistant_report.verification.response.adjustments_required:
@@ -39,6 +73,7 @@ def process_question(input_file_path: str, output_file_path: str = "out.json"):
                     next_request = AssistantRequest(
                         original_question=entry_report.response.chosen_interpretation.content,
                         adjusted_question=assistant_report.proposal.response.question,
+                        relevant_rules=relevant_rules,
                         response=assistant_report.verification.response.answer
                     )
                 else:
@@ -46,6 +81,7 @@ def process_question(input_file_path: str, output_file_path: str = "out.json"):
                     next_request = AssistantRequest(
                         original_question=entry_report.response.chosen_interpretation.content,
                         adjusted_question=assistant_report.proposal.response.question,
+                        relevant_rules=relevant_rules,
                         response=assistant_report.proposal.response.answer
                     )
 

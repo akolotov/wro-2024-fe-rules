@@ -7,7 +7,7 @@ from data_structures.report import Report, Metadata, CombinedAssistantReport
 from data_structures.inputs.assistant import AssistantRequest
 from .transformers.to_xml.assistant import format_input
 from .transformers.to_json.assistant import parse_response, parse_verification
-from data_structures.responses.assistant import FirstAssistantResponse, SubsequentAssistantResponse, VerificationAssistantResponse
+from data_structures.responses.assistant import FirstAssistantResponse, SubsequentAssistantResponse, VerificationAssistantResponse, FirstResponseRule, SubsequentResponseRule
 
 class AssistantAgent:
     def __init__(self, section_filename: str):
@@ -97,19 +97,45 @@ class AssistantAgent:
 
         # Convert base response to appropriate type
         if request.response:
+            if base_response.relevant_rules:
+                relevant_rules = []
+                for rule in base_response.relevant_rules:
+                    relevant_rules.append(SubsequentResponseRule(
+                        section=rule.section,
+                        id=rule.id,
+                        content=rule.content,
+                        explanation=rule.explanation
+                    ))
+            else:
+                relevant_rules = None
+
             response = SubsequentAssistantResponse(
                 question=base_response.question,
+                relevant_rules=relevant_rules,
                 chain_of_thought=base_response.chain_of_thought,
                 applicable=base_response.applicable,
-                answer=base_response.answer
+                answer=base_response.answer,
             )
             return Report[SubsequentAssistantResponse](
                 metadata=metadata,
                 response=response
             )
         else:
+            if base_response.relevant_rules:
+                relevant_rules = []
+                for rule in base_response.relevant_rules:
+                    relevant_rules.append(FirstResponseRule(
+                        section=rule.section,
+                        id=rule.id,
+                        content=rule.content,
+                        explanation=rule.explanation
+                    ))
+            else:
+                relevant_rules = None
+
             response = FirstAssistantResponse(
                 question=base_response.question,
+                relevant_rules=relevant_rules,
                 chain_of_thought=base_response.chain_of_thought, 
                 applicable=base_response.applicable,
                 answer=base_response.answer

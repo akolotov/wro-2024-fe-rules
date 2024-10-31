@@ -39,7 +39,6 @@ from .base import BaseResponse
 #         The most probable interpretation of the question  
 #     </chosenInterpretation>
 # </response>
-
 class UserRequestInterpretation(BaseModel):
     """
     Pydantic model for a single interpretation of the user's question.

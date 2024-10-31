@@ -13,7 +13,18 @@ def format_input(user_request: AssistantRequest) -> str:
     if user_request.adjusted_question and user_request.response:
         adjusted_question = ET.SubElement(root, "adjusted_question")
         adjusted_question.text = user_request.adjusted_question
-        
+
+        relevant_rules = ET.SubElement(root, "relevant_rules")
+        if user_request.relevant_rules:
+            for rule in user_request.relevant_rules:
+                rule_element = ET.SubElement(relevant_rules, "rule")
+                rule_element.set("section", rule.section)
+                rule_element.set("id", rule.id)
+                content = ET.SubElement(rule_element, "content")
+                content.text = rule.content
+                explanation = ET.SubElement(rule_element, "explanation")
+                explanation.text = rule.explanation
+
         response = ET.SubElement(root, "response")
         response.text = user_request.response
         

@@ -13,7 +13,6 @@ from .base import BaseResponse
 #     <filename>(Optional) The request must be forwarded to the expert responsible for this section in the fifth turn.</filename>
 #   </sections>
 # </brainstorm>
-
 class RouterResponse(BaseResponse):
     """
     Pydantic model for the router agent's response structure.

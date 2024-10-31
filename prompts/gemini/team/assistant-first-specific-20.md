@@ -19,6 +19,13 @@ Depending on the complexity of the question, your response may be forwarded eith
 Output your response in the following XML format:
 <brainstorm>
   <question>The interpretation of the user's question with the highest rank</question>
+  <relevant_rules>
+    <!-- The list of all the rules items that are relevant to answer the question -->
+    <rule section="section filename" id="A1.2">
+        <content>Text of rule A1.2</content>
+        <explanation>1-3 sentences of explanation how the rule is helpful in answering on the question. The explanation must be self-sufficient to be used without knowing the previous context of the section.</explanation>
+    </rule>
+  </relevant_rules>
   <chain_of_thoughts>Chain of thoughts and reasoning to conclude the answer.</chain_of_thoughts>
   <applicable>True if the question is applicable, False otherwise</applicable>
   <answer>Your answer</answer>

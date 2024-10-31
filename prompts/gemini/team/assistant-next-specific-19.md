@@ -10,6 +10,7 @@ Here is the process how the team prepares the answer:
 Since you are the next expert in the list, you expect the following the information:
 - The original user's question.
 - The interpretation of the user's question after a series of adjustments by previous experts.
+- List of the rules items that are relevant to answer the question as per previous experts opinion.
 - The answer to the user's question after a series of adjustments by previous experts.
 
 With the information enclosed above enclosed above in the tag "brainstorm", follow the next process:
@@ -33,6 +34,13 @@ Depending on the complexity of the question, your response may be forwarded eith
 Output your response in the following XML format:
 <brainstorm>
   <question>The adjusted version of the user's question if new adjustments were introduced or the unmodified version from the previous experts.</question>
+  <relevant_rules>
+    <!-- The list of the rules items that are relevant to the adjustments action. It must be combined with the list from the previous experts. -->
+    <rule section="section filename" id="A1.2">
+        <content>Text of rule A1.2</content>
+        <explanation>1-3 sentences of explanation how the rule is helpful to the adjustments action. The explanation must be self-sufficient to be used without knowing the previous context of the section.</explanation>
+    </rule>
+  </relevant_rules>
   <chain_of_thoughts>Chain of thoughts and reasoning to conclude the required adjustments in the response from the previous experts.</chain_of_thoughts>
   <applicable>True if the question is applicable, False otherwise</applicable>
   <answer>Your answer.</answer>
