@@ -6,7 +6,8 @@
 - **Competition:** There are two types of rounds in the competition: qualification and final. The best performing teams after the qualification rounds participating in the final rounds.
 - **Game field:** The area which the vehicle must navigate within. The area may contain objects the vehicle must interact to as per the competition requirements.
 - **GitHub repo:** A storage for the source codes of the programs managed with the version control system Git. The storage is provided by the GitHub service (https://github.com/)
-- **Round:** During the practice time, the team can test the vehicle on the field and the team can change mechanical aspects or the coding of the vehicle. Calibration is allowed during practise time.
+- **Round:** A team runs an autonomous vehicle to complete the task of the challenge. The challenge score is based on the amount of laps the vehicle drives on the game field.
+- **Practice Time:** During the practice time, the team can test the vehicle on the field and the team can change mechanical aspects or the coding of the vehicle. Calibration is allowed during practise time.
 - **Team:** In this document the word team includes the 2-3 participants (students) of a team, not the coach who should only support the team.
 - **Vehicle’s control program:** A set (or sets) of instructions for the vehicle’s microprocessor/microcontroller to read values from the sensors and analyse this information and prior state of the vehicle as so to provide commands for the vehicle’s motors to solve the challenge.
 - **Driving Motor:** The motors connected to the axles which are connected to the wheels. These motors move the vehicle forward or backward.
