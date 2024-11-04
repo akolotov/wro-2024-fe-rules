@@ -1,4 +1,4 @@
-# 11. **Vehicle material & regulations**
+# 11. **Vehicle material and regulations**
 
 11.1. The vehicle’s dimensions must not exceed 300x200 mm and 300 mm in height.
 
