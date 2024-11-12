@@ -1,6 +1,6 @@
 import time
 from configuration.constants import constants
-from llms import gemini
+from llms import ChatModel
 from helper import read_file_content
 from .transformers.to_json.router import parse
 from .transformers.to_xml.common import format_input
@@ -21,7 +21,7 @@ class RouterAgent:
             annotations_file_content=annotations_content
         )
 
-        self.model = gemini.GeminiModel(system_prompt)
+        self.model = ChatModel(system_prompt)
 
     def process_question(self, input: str) -> Report[RouterResponse]:
         user_request = UserRequest(request=input)
@@ -29,16 +29,16 @@ class RouterAgent:
 
         # Measure the duration of the generate_response call
         start_time = time.time()
-        raw_text_response, usage_metadata = self.model.generate_response(formatted_question)
+        res = self.model.generate_response(formatted_question)
         duration = time.time() - start_time
 
-        parsed_response = parse(raw_text_response)
+        parsed_response = parse(res.response)
 
         # Create metadata instance
         metadata = Metadata(
-            prompt_token_count=usage_metadata.prompt_token_count,
-            candidates_token_count=usage_metadata.candidates_token_count,
-            total_token_count=usage_metadata.total_token_count,
+            prompt_token_count=res.metadata.prompt_token_count,
+            candidates_token_count=res.metadata.candidates_token_count,
+            total_token_count=res.metadata.total_token_count,
             duration=duration
         )
 

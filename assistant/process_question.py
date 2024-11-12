@@ -1,5 +1,5 @@
 import json
-from llms import gemini
+from llms import initialize as initialize_llm
 import argparse
 from agents import EntryAgent, RouterAgent, AssistantAgent, FinalizerAgent
 from data_structures.inputs.assistant import AssistantRequest
@@ -110,7 +110,7 @@ def main():
     args = parser.parse_args()
     
     try:
-        gemini.initialize()
+        initialize_llm()
         result = process_question(args.input, args.output)
         print(f"Response saved to {args.output}")
     except Exception as e:

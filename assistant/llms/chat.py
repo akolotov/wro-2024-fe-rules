@@ -8,7 +8,7 @@ from .types import ChatModelConfig, RawChatModelResponse
 from .exceptions import GenerationError, UnexpectedFinishReason
 
 def initialize():
-    initialize_gemini(gemini_settings.api_key)
+    initialize_gemini(api_key=gemini_settings.api_key)
 
 class ChatModel(GeminiModel):
     def __init__(self, system_prompt: str):

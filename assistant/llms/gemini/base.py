@@ -7,7 +7,7 @@ import logging
 
 import google.generativeai as genai
 from google.generativeai import protos
-from google.ai.generativelanguage_v1beta.types import content
+from google.ai.generativelanguage_v1beta.types import content, GenerateContentResponse
 
 from ..types import ChatModelConfig, RawChatModelResponse
 
@@ -128,8 +128,10 @@ class GeminiChatModelConfig(ChatModelConfig):
 
 class GeminiChatModelResponse(RawChatModelResponse):
     response: Optional[str] = None
-    metadata: Optional[UsageMetadata] = None
+    metadata: Optional[GenerateContentResponse.UsageMetadata] = None
 
+    class Config:
+        arbitrary_types_allowed = True
 
 class BaseChatModel:
     """A wrapper class for the Gemini generative model that maintains conversation history.

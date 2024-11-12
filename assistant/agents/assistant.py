@@ -1,6 +1,6 @@
 import time
 from configuration.constants import constants
-from llms import gemini
+from llms import ChatModel
 from helper import read_file_content
 from data_structures.responses.assistant import BaseAssistantResponse
 from data_structures.report import Report, Metadata, CombinedAssistantReport
@@ -40,7 +40,7 @@ class AssistantAgent:
             )
 
         self.section_filename = section_filename
-        self.model = gemini.GeminiModel(system_prompt)
+        self.model = ChatModel(system_prompt)
 
     def brainstorm_contribution(self, request: AssistantRequest) -> CombinedAssistantReport[BaseAssistantResponse]:
         proposal = self._proposal(request)
@@ -81,17 +81,17 @@ class AssistantAgent:
 
         # Measure the duration of the generate_response call
         start_time = time.time()
-        raw_text_response, usage_metadata = self.model.generate_response(prompt_content)
+        res = self.model.generate_response(prompt_content)
         duration = time.time() - start_time
 
         # Parse the base response
-        base_response = parse_response(raw_text_response)
+        base_response = parse_response(res.response)
 
         # Create metadata instance
         metadata = Metadata(
-            prompt_token_count=usage_metadata.prompt_token_count,
-            candidates_token_count=usage_metadata.candidates_token_count,
-            total_token_count=usage_metadata.total_token_count,
+            prompt_token_count=res.metadata.prompt_token_count,
+            candidates_token_count=res.metadata.candidates_token_count,
+            total_token_count=res.metadata.total_token_count,
             duration=duration
         )
 
