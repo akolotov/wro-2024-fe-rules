@@ -7,6 +7,10 @@ def trim_xml_response(xml_string: str, root_tag: str) -> str:
         return xml_string[start_index:end_index]
     return xml_string
 
+def escape_xml_characters(text: str) -> str:
+    result = text.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;').replace("'", '&apos;')
+    print(f"Escaped XML string: {result}")
+    return result
 
 def get_element_text(root: ET.Element, element: str, required: bool = True, empty_ok: bool = False) -> str:
     element = root.find(element)
