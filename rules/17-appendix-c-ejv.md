@@ -10,7 +10,7 @@ The following guideline will be used to evaluate the engineering journal and veh
 | 4. Pictures – Team and vehicle  | 4 |
 | 5. Performance videos | 4 |
 | 6. GitHub utilization | 4 |
-| 7. GitHub utilization | 4 |
+| 7. Engineering Factor | 4 |
 | 8. Overall Judge impression  | 2 |
 | Total score: | 30 |
 

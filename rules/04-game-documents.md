@@ -10,7 +10,6 @@
 
 4.4.1. General rule document builds the basis for rules in this category.
 
-4.4.2. Questions & Answers (Q&A’s) can overwrite rules in game and general rule
-documents.
+4.4.2. Questions & Answers (Q&A’s) can overwrite rules in game and general rule documents.
 
 4.4.3. The head judge on the competition day has the final word in any decision.
