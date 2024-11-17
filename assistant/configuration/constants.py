@@ -8,6 +8,10 @@ class Constants(BaseModel):
     # Prompts files
     entry_prompt_file: str = 'entry.md'
     router_prompt_file: str = 'router-system.md'
+    
+    faq_filter_system_prompt_file: str = 'faq-filter-system.md'
+    faq_filter_handler_prompt_file: str = 'faq-filter-handler.md'
+    faq_filter_verification_prompt_file: str = 'faq-filter-verification.md'
 
     assistant_system_prompt_file: str = 'assistant-system.md'
     assistant_system_multi_section_prompt_file: str = 'assistant-system-multi-section.md'
@@ -25,7 +29,7 @@ class Constants(BaseModel):
     # Rules files common for all sections
     summary_file: str = '00-summary.md'
     annotations_file: str = 'ANNOTATIONS.md'
-
+    faq_file: str = '99-questions-and-answers.md'
     dependant_sections: dict[str, list[str]] = {
         '09-specific-rules.md': ['15-appendix-a-explanatories.md'],
         '15-appendix-a-explanatories.md': ['09-specific-rules.md'],
@@ -36,6 +40,6 @@ class Constants(BaseModel):
     }
 
     # Generation parameters
-    generation_temperature: float = 0.0
+    generation_temperature: float = 0.1
 
 constants = Constants()

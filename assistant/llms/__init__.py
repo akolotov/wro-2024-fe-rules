@@ -1,3 +1,3 @@
-from .chat import ChatModel, initialize
+from .chat import ChatModel, ChatModelWithSchema, initialize
 
-__all__ = ["ChatModel", "initialize"]
+__all__ = ["ChatModel", "ChatModelWithSchema", "initialize"]

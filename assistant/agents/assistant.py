@@ -159,17 +159,17 @@ class AssistantAgent:
 
         # Measure the duration of the generate_response call
         start_time = time.time()
-        raw_text_response, usage_metadata = self.model.generate_response(prompt_content)
+        res = self.model.generate_response(prompt_content)
         duration = time.time() - start_time
 
         # Parse the base response
-        response = parse_verification(raw_text_response)
+        response = parse_verification(res.response)
 
         # Create metadata instance
         metadata = Metadata(
-            prompt_token_count=usage_metadata.prompt_token_count,
-            candidates_token_count=usage_metadata.candidates_token_count,
-            total_token_count=usage_metadata.total_token_count,
+            prompt_token_count=res.metadata.prompt_token_count,
+            candidates_token_count=res.metadata.candidates_token_count,
+            total_token_count=res.metadata.total_token_count,
             duration=duration
         )
 

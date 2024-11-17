@@ -9,3 +9,7 @@ class UserRequest(BaseModel):
         description="The user's question",
         example="How many laps are in the Open Challenge?"
     )
+
+if __name__ == "__main__":
+    ur = UserRequest(request="How many laps are in the Open Challenge?")
+    print(ur.model_dump_json())

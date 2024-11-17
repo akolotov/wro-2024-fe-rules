@@ -1,4 +1,9 @@
 from pydantic import BaseModel, Field
+from typing import Any
+
+from google.ai.generativelanguage_v1beta.types import content
+
+from llms.types import LLMEngine
 
 class BaseResponse(BaseModel):
     """
@@ -17,3 +22,11 @@ class BaseResponse(BaseModel):
                 "chain_of_thought": "1. Analyzed question context\n2. Identified key terms\n3. Selected most likely interpretation",
             }
         }
+
+    @classmethod
+    def llm_schema(cls, _engine: LLMEngine) -> Any:
+        raise NotImplementedError("LLM schema not implemented for this response")
+    
+    @classmethod
+    def deserialize(cls, _response: str, _engine: LLMEngine) -> "BaseResponse":
+        raise NotImplementedError("Deserialization not implemented for this response")

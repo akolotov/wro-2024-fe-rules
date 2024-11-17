@@ -2,6 +2,7 @@ from typing import TypeVar, Generic, Optional
 from pydantic import BaseModel, Field
 from .responses.base import BaseResponse
 from .responses.assistant import VerificationAssistantResponse, BaseAssistantResponse
+from .responses.faq_filter import FAQFilterResponse
 
 T = TypeVar('T', bound=BaseResponse)
 A = TypeVar('A', bound=BaseAssistantResponse)
@@ -19,3 +20,7 @@ class Report(BaseModel, Generic[T]):
 class CombinedAssistantReport(BaseModel, Generic[A]):
     proposal: Report[A]
     verification: Optional[Report[VerificationAssistantResponse]] = None
+
+class FAQFilterReport(BaseModel):
+    handler: Report[FAQFilterResponse]
+    verification: Report[FAQFilterResponse]

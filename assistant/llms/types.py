@@ -1,5 +1,6 @@
 from typing import Optional, Any, Tuple
 from pydantic import BaseModel
+from enum import Enum
 
 class ChatModelConfig(BaseModel):
     """
@@ -32,9 +33,18 @@ class ChatModelConfig(BaseModel):
     class Config:
         arbitrary_types_allowed = True
 
-class RawChatModelResponse(BaseModel):
+class BaseChatModelResponse(BaseModel):
     success: bool
     failure_reason: Optional[Tuple[str, str]] = None
-    response: Optional[Any] = None
     metadata: Optional[Any] = None
 
+class RawChatModelResponse(BaseChatModelResponse):
+    response: Optional[str] = None
+
+class DeserializedChatModelResponse(BaseChatModelResponse):
+    response: Optional[Any] = None
+
+# Enum for the LLM engines
+class LLMEngine(Enum):
+    GEMINI = "gemini"
+    OPENAI = "openai"

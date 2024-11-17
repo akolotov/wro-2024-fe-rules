@@ -161,10 +161,11 @@ class BaseChatModel:
             generation_config.response_schema = config.response_schema
             generation_config.response_mime_type = "application/json"
 
+        self._generation_config = generation_config
+
         self.model = genai.GenerativeModel(
             model_name=config.llm_model_name,
-            system_instruction=config.system_prompt,
-            generation_config=generation_config
+            system_instruction=config.system_prompt
         )
 
         self._history: list[protos.Content] = []
@@ -197,7 +198,7 @@ class BaseChatModel:
             with open(file_path, "w") as f:
                 f.write(str(response))
 
-    def _generate_response(self, prompt: str) -> GeminiChatModelResponse:
+    def _generate_response(self, prompt: str, response_schema: Optional[content.Schema] = None) -> GeminiChatModelResponse:
         """Generate a response from the model based on the given prompt.
 
         The prompt is added to the conversation history before generating the response.
@@ -209,7 +210,7 @@ class BaseChatModel:
             prompt (str): The input text to send to the model
 
         Returns:
-            str: The generated response text from the model
+            GeminiChatModelResponse: The response from the Gemini model
 
         Raises:
             GeminiModelError: If there is an error generating the response
@@ -223,9 +224,14 @@ class BaseChatModel:
             parts=[protos.Part(text=dedent(prompt))], role="user")
         self._history.append(prompt_content)
 
+        generation_config = self._generation_config
+        if response_schema:
+            generation_config.response_schema = response_schema
+            generation_config.response_mime_type = "application/json"
+
         try:
             # Request response from model for the prompt added to history
-            response = self.model.generate_content(self._history)
+            response = self.model.generate_content(self._history, generation_config=generation_config)
         except Exception as e:
             # Roll back the prompt from history on error to avoid keeping prompts without
             # responses in history
