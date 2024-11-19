@@ -18,7 +18,7 @@ The question/clarification request is provided in the following XML format:
        question text  
    </user_question>
 
-If unsure of the exact section, rank the sections' annotations by their similarity to the question and select the five sections with the highest relevance.
+If unsure of the exact section, rank the sections' annotations by their similarity to the question and select the five sections with the highest relevance. If you see that it is enough to lesser amount of experts, then select only that amount.
 
 Output your response in the following XML format:
 <brainstorm>
