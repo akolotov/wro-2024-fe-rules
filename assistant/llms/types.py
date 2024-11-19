@@ -48,3 +48,8 @@ class DeserializedChatModelResponse(BaseChatModelResponse):
 class LLMEngine(Enum):
     GEMINI = "gemini"
     OPENAI = "openai"
+
+# Enum for the LLM data formats
+class LLMDataFormat(Enum):
+    JSON = "json"
+    XML = "xml"

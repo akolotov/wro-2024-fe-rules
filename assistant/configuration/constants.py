@@ -35,8 +35,9 @@ class Constants(BaseModel):
         '15-appendix-a-explanatories.md': ['09-specific-rules.md'],
         '07-documentation.md': ['17-appendix-c-ejv.md'],
         '17-appendix-c-ejv.md': ['07-documentation.md'],
-        '10-scoring.md': ['17-appendix-c-ejv.md'],
-        '08-challenge-rounds.md': ['19-appendix-y-randomization.md']
+        '10-scoring.md': ['21-appendix-w-scoring.md', '17-appendix-c-ejv.md'],
+        '08-challenge-rounds.md': ['19-appendix-y-randomization.md'],
+        '21-appendix-w-scoring.md': ['10-scoring.md']
     }
 
     # Generation parameters

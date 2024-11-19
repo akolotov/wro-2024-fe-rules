@@ -1,43 +1,45 @@
 import time
+
 from configuration.constants import constants
+from configuration.settings import settings
 from llms import ChatModel
 from helper import read_file_content
 from data_structures.responses.assistant import BaseAssistantResponse
 from data_structures.report import Report, Metadata, CombinedAssistantReport
 from data_structures.inputs.assistant import AssistantRequest
+from data_structures.inputs.documents import ContextualDocument, DocumentsForContext
 from .transformers.to_xml.assistant import format_input
 from .transformers.to_json.assistant import parse_response, parse_verification
 from data_structures.responses.assistant import FirstAssistantResponse, SubsequentAssistantResponse, VerificationAssistantResponse, FirstResponseRule, SubsequentResponseRule
+from llms.types import LLMDataFormat
 
 class AssistantAgent:
     def __init__(self, section_filename: str):
-        summary_content = read_file_content(constants.rules_path / constants.summary_file)
+        summary_document = ContextualDocument(source=constants.summary_file, content=read_file_content(settings.rules_path / constants.summary_file), index=1)
 
-        section_rules_content = read_file_content(constants.rules_path / section_filename)
-
+        section_files = [section_filename]
         if section_filename in constants.dependant_sections:
-            dependant_section_filename = constants.dependant_sections[section_filename][0]
-            dependant_section_rules_content = read_file_content(constants.rules_path / dependant_section_filename)
+            section_files.extend(constants.dependant_sections[section_filename])
 
-            prompt_template = read_file_content(constants.prompts_path / constants.assistant_system_multi_section_prompt_file)
+        section_documents = []
+        for n, filename in enumerate(section_files):
+            section_documents.append(ContextualDocument(source=filename, content=read_file_content(settings.rules_path / filename), index=n+2))
 
-            system_prompt = prompt_template.format(
-                summary_filename=constants.summary_file,
-                summary_file_content=summary_content,
-                section_filename=section_filename,
-                section_file_content=section_rules_content,
-                dependant_section_filename=dependant_section_filename,
-                dependant_section_file_content=dependant_section_rules_content
-            )
+        documents_for_context = DocumentsForContext(documents=[summary_document, *section_documents])
+
+        if len(section_files) > 1:
+            section_filenames_string = ", ".join([f"`{filename}`" for filename in section_files[:-1]])
+            section_filenames_string += f" and `{section_files[-1]}`"
+            section_filenames_string = f"files {section_filenames_string}"
         else:
-            prompt_template = read_file_content(constants.prompts_path / constants.assistant_system_prompt_file)
+            section_filenames_string = f"the file `{section_files[0]}`"
 
-            system_prompt = prompt_template.format(
-                summary_filename=constants.summary_file,
-                summary_file_content=summary_content,
-                section_filename=section_filename,
-                section_file_content=section_rules_content
-            )
+        prompt_template = read_file_content(settings.prompts_path / constants.assistant_system_prompt_file)
+        system_prompt = prompt_template.format(
+            documents_for_context=documents_for_context.serialize(format=LLMDataFormat.XML),
+            summary_filename=constants.summary_file,
+            section_filenames=section_filenames_string
+        )
 
         self.section_filename = section_filename
         self.model = ChatModel(system_prompt)
@@ -74,7 +76,7 @@ class AssistantAgent:
 
         print(f"-- {prompt_file} will be used")
 
-        prompt_template = read_file_content(constants.prompts_path / prompt_file)
+        prompt_template = read_file_content(settings.prompts_path / prompt_file)
         prompt_content = prompt_template.format(
             xml_input=format_input(request)
         )                
@@ -155,7 +157,7 @@ class AssistantAgent:
 
         print(f"-- {prompt_file} will be used")
 
-        prompt_content = read_file_content(constants.prompts_path / prompt_file)
+        prompt_content = read_file_content(settings.prompts_path / prompt_file)
 
         # Measure the duration of the generate_response call
         start_time = time.time()

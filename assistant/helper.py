@@ -1,5 +1,3 @@
-import os
-
 def read_file_content(file_path):
     """
     Read and return the content of a file.
