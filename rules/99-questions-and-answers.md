@@ -93,6 +93,7 @@ A: The last traffic sign in a lap is defined as the final traffic sign that the 
 Q: What are the direction change rules when a vehicle encounters a red traffic sign as the last sign of the second lap?
 
 A: When a vehicle encounters a red traffic sign as the last sign of the second lap:
+
 Required Behavior:
 
 1. The vehicle must first complete the second lap by fully crossing into the starting section
