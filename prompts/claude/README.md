@@ -38,33 +38,33 @@ The mode is determined message by message - you can switch between modes freely 
 
 2. **Add Rule Documents**
    The following files from [the `rules` directory](../../rules) need to be added to the project content:
-   - ANNOTATIONS.md
-   - 00-summary.md
-   - 01-general-information.md
-   - 02-team-and-age-groups.md
-   - 03-responsibilities.md
-   - 04-game-documents.md
-   - 05-game-description.md
-   - 06-surprise-rule.md
-   - 07-documentation.md
-   - 08-challenge-rounds.md
-   - 09-specific-rules.md
-   - 10-scoring.md
-   - 11-vehicle.md
-   - 12-competition-format.md
-   - 13-game-table.md
-   - 14-glossary.md
-   - 15-appendix-a-explanatories.md
-   - 16-appendix-b-gf.md
-   - 17-appendix-c-ejv.md
-   - 18-appendix-d-msec.md
-   - 19-appendix-y-randomization.md
-   - 20-appendix-z-one-lap.md
-   - 21-appendix-w-scoring.md
-   - 99-questions-and-answers.md
+   - [`ANNOTATIONS.md`](../../rules/ANNOTATIONS.md)
+   - [`00-summary.md`](../../rules/00-summary.md)
+   - [`01-general-information.md`](../../rules/01-general-information.md)
+   - [`02-team-and-age-groups.md`](../../rules/02-team-and-age-groups.md)
+   - [`03-responsibilities.md`](../../rules/03-responsibilities.md)
+   - [`04-game-documents.md`](../../rules/04-game-documents.md)
+   - [`05-game-description.md`](../../rules/05-game-description.md)
+   - [`06-surprise-rule.md`](../../rules/06-surprise-rule.md)
+   - [`07-documentation.md`](../../rules/07-documentation.md)
+   - [`08-challenge-rounds.md`](../../rules/08-challenge-rounds.md)
+   - [`09-specific-rules.md`](../../rules/09-specific-rules.md)
+   - [`10-scoring.md`](../../rules/10-scoring.md)
+   - [`11-vehicle.md`](../../rules/11-vehicle.md)
+   - [`12-competition-format.md`](../../rules/12-competition-format.md)
+   - [`13-game-table.md`](../../rules/13-game-table.md)
+   - [`14-glossary.md`](../../rules/14-glossary.md)
+   - [`15-appendix-a-explanatories.md`](../../rules/15-appendix-a-explanatories.md)
+   - [`16-appendix-b-gf.md`](../../rules/16-appendix-b-gf.md)
+   - [`17-appendix-c-ejv.md`](../../rules/17-appendix-c-ejv.md)
+   - [`18-appendix-d-msec.md`](../../rules/18-appendix-d-msec.md)
+   - [`19-appendix-y-randomization.md`](../../rules/19-appendix-y-randomization.md)
+   - [`20-appendix-z-one-lap.md`](../../rules/20-appendix-z-one-lap.md)
+   - [`21-appendix-w-scoring.md`](../../rules/21-appendix-w-scoring.md)
+   - [`99-questions-and-answers.md`](../../rules/99-questions-and-answers.md)
 
 3. **Configure Custom Instructions**
-   - Locate the `instructions-writing.md` file
+   - Locate the [`instructions-writing.md`](instructions-writing.md) file
    - Copy its contents into Claude's custom instructions section
    - Ensure all sections (preferences, artifacts info, etc.) are properly transferred
 
