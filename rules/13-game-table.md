@@ -12,7 +12,7 @@
 
 13.5. There exist additional (interior) walls surrounding the internal section of the track with the height 100 mm.
 
-![The image shows a section of the robotics competition field with both exterior and interior walls. The height of both walls is 100 mm, and the walls are black.](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc84f75-a08e-44e5-94e8-8418e8377ebf/4ccd04d6-7e3b-424d-8411-9a65e007554a/image.png)
+![The image shows a section of the robotics competition field with both exterior and interior walls. The height of both walls is 100 mm, and the walls are black.](https://github.com/akolotov/wro-2024-fe-rules/blob/bb15b8ac7644dd19ec78d8149257dc76611e7d70/rules/figures/010.png)
 
 **Figure 10: Height of the exterior and interior walls**
 
@@ -36,7 +36,7 @@
 
 13.15. The diameter of the circle is 85 mm.
 
-![The image shows a detailed game field map for a robotics competition. The mat size is 3200 x 3200 mm, with an internal racetrack of 3000 x 3000 mm. The field is mostly white with orange and blue lines, each 20 mm thick. Dashed lines mark the vehicle’s starting zones, and squares indicate where traffic signs can be placed. Each traffic sign seat is 50 x 50 mm with an evaluation circle of 85 mm diameter around it. Various dimensions and color codes are shown to specify field measurements and markings.](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc84f75-a08e-44e5-94e8-8418e8377ebf/a86e5bff-c3dd-488c-a825-1b7c18b2e003/image.png)
+![The image shows a detailed game field map for a robotics competition. The mat size is 3200 x 3200 mm, with an internal racetrack of 3000 x 3000 mm. The field is mostly white with orange and blue lines, each 20 mm thick. Dashed lines mark the vehicle’s starting zones, and squares indicate where traffic signs can be placed. Each traffic sign seat is 50 x 50 mm with an evaluation circle of 85 mm diameter around it. Various dimensions and color codes are shown to specify field measurements and markings.](https://github.com/akolotov/wro-2024-fe-rules/blob/bb15b8ac7644dd19ec78d8149257dc76611e7d70/rules/figures/011.png)
 
 **Figure 11: The game field map with sizes**
 
@@ -62,7 +62,7 @@
 
 13.24. The weight of the traffic sign is not defined.
 
-![The image shows two traffic signs used in the robotics competition field. One is green, and the other is red, both rectangular pillars with identical dimensions: 100 mm in height and 50 mm x 50 mm in width and depth.](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc84f75-a08e-44e5-94e8-8418e8377ebf/5958597a-fcd9-4115-a96c-f573a176a7d5/image.png)
+![The image shows two traffic signs used in the robotics competition field. One is green, and the other is red, both rectangular pillars with identical dimensions: 100 mm in height and 50 mm x 50 mm in width and depth.](https://github.com/akolotov/wro-2024-fe-rules/blob/bb15b8ac7644dd19ec78d8149257dc76611e7d70/rules/figures/012.png)
 
 **Figure 12: Dimensions of the traffic signs**
 
@@ -78,6 +78,6 @@
 
 13.29. <new_in_2024>The weight of the traffic sign is not defined.</new_in_2024>
 
-![The image shows a parking lot limitation used in the robotics competition field. It is a magenta rectangular block with dimensions of 200 mm in length, 20 mm in width, and 100 mm in height.](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc84f75-a08e-44e5-94e8-8418e8377ebf/56d74dd8-dae7-43be-9010-9419c58821ac/image.png)
+![The image shows a parking lot limitation used in the robotics competition field. It is a magenta rectangular block with dimensions of 200 mm in length, 20 mm in width, and 100 mm in height.](https://github.com/akolotov/wro-2024-fe-rules/blob/bb15b8ac7644dd19ec78d8149257dc76611e7d70/rules/figures/013.png)
 
 **Figure 13: Dimensions of the parking lot limitations**

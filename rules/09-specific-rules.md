@@ -52,7 +52,7 @@ and the vehicle should start moving.
 
 9.19. The vehicle must pass the traffic sign represented by the red pillar on the right (the picture a) and the traffic sign represented by the green pillar on the left (the picture b). <new_in_2024>The appendix A section 5 defines, when a traffic light was passed on the wrong side and how it is scored.</new_in_2024>
 
-![The image shows two scenes from a robotics competition field demonstrating the rules for passing traffic signs. In the left image (a), the yellow self-driving car bypasses the green pillar, approaches the red pillar, and the green arrow indicates that the red pillar must be passed on the right. In the right image (b), the car bypasses the red pillar, finishes a turn from the straightforward section, and approaches the green pillar, with the green arrow indicating it must be passed on the left.](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc84f75-a08e-44e5-94e8-8418e8377ebf/6ebecd2b-258f-443f-9d51-829a3c211bc8/image.png)
+![The image shows two scenes from a robotics competition field demonstrating the rules for passing traffic signs. In the left image (a), the yellow self-driving car bypasses the green pillar, approaches the red pillar, and the green arrow indicates that the red pillar must be passed on the right. In the right image (b), the car bypasses the red pillar, finishes a turn from the straightforward section, and approaches the green pillar, with the green arrow indicating it must be passed on the left.](https://github.com/akolotov/wro-2024-fe-rules/blob/bb15b8ac7644dd19ec78d8149257dc76611e7d70/rules/figures/009.png)
 
 **Figure 9: The rules to pass the traffic signs**
 

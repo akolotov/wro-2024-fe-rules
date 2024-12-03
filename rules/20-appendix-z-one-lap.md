@@ -160,7 +160,7 @@ T3---X2---T4
 
 ## Example 1
 
-![The image depicts a square track with a central platform. The track consists of 4 straightforward sections and 4 corner sections. The driving direction is clockwise. The vehicle's starting position is in Section W, Zone Z4. Traffic signs are positioned as follows: Section N has a green sign at T2, Section E has a green sign at X2, Section S has red signs at T3 and T4, and Section W has a green sign at T1 and a red sign at T4.](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc84f75-a08e-44e5-94e8-8418e8377ebf/c0c9aa90-ee00-4345-b39a-f4d17024cf96/image.png)
+![The image depicts a square track with a central platform. The track consists of 4 straightforward sections and 4 corner sections. The driving direction is clockwise. The vehicle's starting position is in Section W, Zone Z4. Traffic signs are positioned as follows: Section N has a green sign at T2, Section E has a green sign at X2, Section S has red signs at T3 and T4, and Section W has a green sign at T1 and a red sign at T4.](https://github.com/akolotov/wro-2024-fe-rules/blob/bb15b8ac7644dd19ec78d8149257dc76611e7d70/rules/figures/035.png)
 
 **Figure 35. The vehicle position and the game elements layout for the example 1**
 
@@ -193,7 +193,7 @@ The red pillar positioned in the starting section behind the vehicle is consider
 
 ## Example 2
 
-![The image depicts a square track with a central platform. The track consists of 4 straightforward sections and 4 corner sections. The driving direction is counterclockwise. The vehicle's starting position is in Section W, Zone Z3. Traffic signs are positioned as follows: Section N has green signs at T2 and T3, Section E has a green sign at T1 and a red sign at T2, Section S has a green sign at X2, and Section W has a red sign at T4.](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc84f75-a08e-44e5-94e8-8418e8377ebf/a8574a9c-9778-4210-bb83-66a74de54a45/image.png)
+![The image depicts a square track with a central platform. The track consists of 4 straightforward sections and 4 corner sections. The driving direction is counterclockwise. The vehicle's starting position is in Section W, Zone Z3. Traffic signs are positioned as follows: Section N has green signs at T2 and T3, Section E has a green sign at T1 and a red sign at T2, Section S has a green sign at X2, and Section W has a red sign at T4.](https://github.com/akolotov/wro-2024-fe-rules/blob/bb15b8ac7644dd19ec78d8149257dc76611e7d70/rules/figures/036.png)
 
 **Figure 36. The vehicle position and the game elements layout for the example 2**
 
@@ -224,7 +224,7 @@ The green pillar positioned at the end of the fourth straightforward section - c
 
 ## Example 3
 
-![The image depicts a square track with a central platform. The track consists of 4 straightforward sections and 4 corner sections. The driving direction is counterclockwise. The vehicle's starting position is in Section S, Zone Z4. Traffic signs are positioned as follows: Section N has no signs, Section E has a red sign at T2 and a green sign at T3, Section S has no signs, and Section W has a green sign at T2 and a red sign at T3.](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc84f75-a08e-44e5-94e8-8418e8377ebf/13cb3fef-c061-48e5-87bb-2789f0086fe0/image.png)
+![The image depicts a square track with a central platform. The track consists of 4 straightforward sections and 4 corner sections. The driving direction is counterclockwise. The vehicle's starting position is in Section S, Zone Z4. Traffic signs are positioned as follows: Section N has no signs, Section E has a red sign at T2 and a green sign at T3, Section S has no signs, and Section W has a green sign at T2 and a red sign at T3.](https://github.com/akolotov/wro-2024-fe-rules/blob/bb15b8ac7644dd19ec78d8149257dc76611e7d70/rules/figures/037.png)
 
 **Figure 37. The vehicle position and the game elements layout for the example 3**
 
@@ -249,7 +249,7 @@ The green pillar positioned at the end of the fourth straightforward section - c
 
 ## Example 4
 
-![The image depicts a square track with a central platform. The track consists of 4 straightforward sections and 4 corner sections. The driving direction is clockwise. The vehicle's starting position is in Section E, Zone Z3. Traffic signs are positioned as follows: Section N has green signs at T2 and T3, Section E has a green sign at X1, Section S has no signs, and Section W has no signs.](https://prod-files-secure.s3.us-west-2.amazonaws.com/bcc84f75-a08e-44e5-94e8-8418e8377ebf/dc8133c3-4a27-462e-a27f-999e6eebc6d4/image.png)
+![The image depicts a square track with a central platform. The track consists of 4 straightforward sections and 4 corner sections. The driving direction is clockwise. The vehicle's starting position is in Section E, Zone Z3. Traffic signs are positioned as follows: Section N has green signs at T2 and T3, Section E has a green sign at X1, Section S has no signs, and Section W has no signs.](https://github.com/akolotov/wro-2024-fe-rules/blob/bb15b8ac7644dd19ec78d8149257dc76611e7d70/rules/figures/038.png)
 
 **Figure 38. The vehicle position and the game elements layout for the example 4**
 
